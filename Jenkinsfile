@@ -1,21 +1,18 @@
 pipeline {
-    agent any
+    agent{
+        dockerfile true
+    }
     stages {
-        stage ('Clean Stage') {
+        stage('SCM Checkout'){
+            git credentialsId: '7d20cb95-f82d-49f2-853e-c628801c041a', url: 'https://github.com/LiquidVibe/testMvn.git'
 
-            steps {
-                withMaven(maven : 'TestMaven') {
-                    sh 'mvn clean'
-                }
-            }
+            git(credentialsId: '7d20cb95-f82d-49f2-853e-c628801c041a', url: 'https://github.com/LiquidVibe/testMvn.git',branch:dev-branch)
         }
-        stage ('Packe Stage') {
 
-            steps {
-                withMaven(maven : 'TestMaven') {
-                    sh 'mvn package'
-                }
-            }
+        stage ('Mvn Package') {
+            def mvnHome = tool name: 'TestMaven', type: 'maven'
+            def mvnCMD = "${mvnHome}/bin/mvn"
+            sh "${mvnCMD} clean package"
         }
 
     }
