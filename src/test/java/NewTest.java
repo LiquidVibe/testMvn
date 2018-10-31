@@ -16,6 +16,7 @@ public class NewTest {
     }
     @BeforeTest
     public void beforeTest() {
+        //ChromeDriverManager.getInstance().setup();
         driver = new ChromeDriver();
     }
     @AfterTest

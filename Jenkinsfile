@@ -13,5 +13,11 @@ node {
             sh 'docker build -t bbentein/dockerMvnImage:1.0.0 .'
        }
 
+       stage ('Push Docker Image'){
+            withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+                sh 'docker login -u bbentein -p ${dockerHubPwd}'
+            }
+            sh 'docker push bbentein/dockerMvnImage:1.0.0'
+       }
 
 }
