@@ -1,23 +1,42 @@
-node {
-       stage ('SCM Checkout'){
-            git credentialsId: '7d20cb95-f82d-49f2-853e-c628801c041a', url: 'https://github.com/LiquidVibe/testMvn.git'
-       }
+pipeline {
+  agent none
+  stages {
 
-       stage ('Mvn Package') {
-            def mvnHome = tool name: 'TestMaven', type: 'maven'
-            def mvnCMD = "${mvnHome}/bin/mvn"
-            sh "${mvnCMD} clean package"
-       }
+    stage('Docker compose) {
+      agent any
+      steps {
+        sh 'docker-compose -f docker-compose.yml up'
+      }
+    }
 
-       stage ('Build Docker Image') {
-            sh 'docker build -t bbentein/dockerMvnImage:1.0.0 .'
-       }
+    stage('Maven Install') {
+      agent {
+        docker {
+          image 'maven:3.5.0'
+        }
+      }
+      steps {
+        sh 'mvn clean install'
+      }
+    }
+    stage('Docker Build') {
+      agent any
+      steps {
+        sh 'docker build -t bbentein/dockerMvnRepo:latest .'
+      }
+    }
+    stage ('Push Docker Image'){
+        withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+             sh 'docker login -u bbentein -p ${dockerHubPwd}'
+         }
+         sh 'docker push bbentein/dockerMvnImage:latest'
+     }
 
-       stage ('Push Docker Image'){
-            withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-                sh 'docker login -u bbentein -p ${dockerHubPwd}'
-            }
-            sh 'docker push bbentein/dockerMvnImage:1.0.0'
-       }
+    post {
+        always {
+            sh 'docker-compose -f docker-compose.yml down'
+        }
+    }
+
 
 }
