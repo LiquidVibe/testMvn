@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-10-31T14:37:10 CET" name="Suite" finished-at="2018-10-31T14:37:14 CET" duration-ms="3088">
+  <suite started-at="2018-10-31T14:41:59 CET" name="Suite" finished-at="2018-10-31T14:42:03 CET" duration-ms="3535">
     <groups>
     </groups>
-    <test started-at="2018-10-31T14:37:10 CET" name="Test" finished-at="2018-10-31T14:37:14 CET" duration-ms="3088">
+    <test started-at="2018-10-31T14:41:59 CET" name="Test" finished-at="2018-10-31T14:42:03 CET" duration-ms="3535">
       <class name="NewTest">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:NewTest@351d0846]" started-at="2018-10-31T14:37:10 CET" name="beforeTest" finished-at="2018-10-31T14:37:11 CET" duration-ms="699" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:NewTest@5a4aa2f2]" started-at="2018-10-31T14:41:59 CET" name="beforeTest" finished-at="2018-10-31T14:42:00 CET" duration-ms="1182" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="testEasy()[pri:0, instance:NewTest@351d0846]" started-at="2018-10-31T14:37:11 CET" name="testEasy" finished-at="2018-10-31T14:37:13 CET" duration-ms="1803" status="PASS">
+        <test-method signature="testEasy()[pri:0, instance:NewTest@5a4aa2f2]" started-at="2018-10-31T14:42:00 CET" name="testEasy" finished-at="2018-10-31T14:42:02 CET" duration-ms="1759" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testEasy -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:NewTest@351d0846]" started-at="2018-10-31T14:37:13 CET" name="afterTest" finished-at="2018-10-31T14:37:14 CET" duration-ms="571" status="PASS">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:NewTest@5a4aa2f2]" started-at="2018-10-31T14:42:02 CET" name="afterTest" finished-at="2018-10-31T14:42:03 CET" duration-ms="571" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
