@@ -16,7 +16,9 @@ public class NewTest {
     }
     @BeforeTest
     public void beforeTest() {
+        //this can be set in commands
         //ChromeDriverManager.getInstance().setup();
+        System.setProperty("webdriver.chrome.driver","Documents/ChromeDriver/chromedriver");
         driver = new ChromeDriver();
     }
     @AfterTest
