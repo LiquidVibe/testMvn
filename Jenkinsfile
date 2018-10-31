@@ -31,6 +31,7 @@ pipeline {
          }
          sh 'docker push bbentein/dockerMvnImage:latest'
      }
+     }
 
     post {
         always {
