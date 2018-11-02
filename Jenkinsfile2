@@ -32,10 +32,6 @@ pipeline {
    }
    stages{
 
-        stage('SCM Checkout'){
-            git credentialsId: 'git-creds',
-        }
-
           stage('Setting Up Selenium Grid') {
              steps{
                 sh "docker network create ${network}"
