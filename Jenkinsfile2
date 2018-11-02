@@ -6,8 +6,24 @@ def firefox='firefox-${BUILD_NUMBER}'
 pipeline {
    agent any
    stages{
+          stage('Example Build') {
+               agent { docker 'maven:3-alpine' }
+               steps {
+                   echo 'Hello, Maven'
+                   sh 'mvn --version'
+               }
+          }
+          stage('Example Test') {
+                      agent { docker 'openjdk:8-jre' }
+                      steps {
+                          echo 'Hello, JDK'
+                          sh 'java -version'
+                      }
+                  }
+
           stage('Setting Up Selenium Grid') {
              steps{
+             withDocker
                 sh "docker network create ${network}"
                 sh "docker run -d -p 4444:4444 --name ${seleniumHub} --network ${network} selenium/hub"
                 sh "docker run -d -e HUB_PORT_4444_TCP_ADDR=${seleniumHub} -e HUB_PORT_4444_TCP_PORT=4444 --network ${network} --name ${chrome} selenium/node-chrome"
