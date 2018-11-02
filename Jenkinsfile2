@@ -35,12 +35,12 @@ pipeline {
          }
          stage ('Push Docker Image'){
              steps{
-                 withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-                      sh 'docker login -u bbentein -p ${dockerHubPwd}'
-                  }
-                  app.push("${BUILD_NUMBER}")
-                  app.push("latest")
-              }
+                script {
+                  docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                      app.push("${BUILD_NUMBER}")
+                      app.push("latest")
+                }
+             }
          }
 
           stage('Tearing Down Selenium Grid') {
