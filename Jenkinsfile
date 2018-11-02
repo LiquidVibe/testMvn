@@ -1,8 +1,7 @@
 pipeline {
     agent any
-    tools {
-        jdk 'jdk8'
-        maven 'maven3'
+    docker.build('my-build-image').inside("--volume=/var/run/docker.sock:/var/run/docker.sock") {
+       // The build here
     }
   stages {
         stage('test java installation') {

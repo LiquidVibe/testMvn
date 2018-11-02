@@ -1,23 +1,17 @@
-FROM openjdk:8-jre-slim
+# Base
+FROM java:openjdk-8u66-jdk
 
-# Install Docker CLI in the agent
-LABEL maintainer="Brent Bentein"
+# Installing psql client
+RUN apt-get update && apt-get install -y \
+    postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
 
-#A Directory in the base image to copy our depedencies
-WORKDIR /usr/share/tag
+# Installing Docker
+RUN wget https://get.docker.com/builds/Linux/x86_64/docker-1.11.0.tgz -O docker.tgz
+RUN tar -xvzf docker.tgz
+RUN mv docker/* /usr/bin/
+RUN chmod +x /usr/bin/docker
 
-# Add the project jar & copy dependencies
-ADD  target/container-test.jar container-test.jar
-ADD  target/libs libs
-
-# Add the suite xmls
-ADD suite/order-module.xml order-module.xml
-ADD suite/search-module.xml search-module.xml
-
-# Command line to execute the test
-# Expects below ennvironment variables
-# BROWSER = chrome / firefox
-# MODULE  = order-module / search-module
-# SELENIUM_HUB = selenium hub hostname / ipaddress
-
-ENTRYPOINT java -cp container-test.jar:libs/* -DseleniumHubHost=$SELENIUM_HUB -Dbrowser=$BROWSER
+# Installs Docker Compose
+RUN curl --fail --silent -L https://github.com/docker/compose/releases/download/1.6.2/docker-compose-`uname -s`-`uname -m` > /usr/bin/docker-compose
+RUN chmod +x /usr/bin/docker-compose

@@ -5,27 +5,26 @@ def firefox='firefox-${BUILD_NUMBER}'
 def containertest='conatinertest-${BUILD_NUMBER}'
 
 pipeline {
-   agent {
-           docker {
-                   image 'maven:3-alpine'
-                   label 'docker'
-                   args  '-v /tmp:/tmp'
-            }
-   }
+   agent any
    stages{
+        stage('Create docker'){
+            steps {
+                sh '''\
+                      HOSTIP=`ip -4 addr show docker0 | grep 'inet ' | awk '{print $2}' | awk -F '/' '{print $1}'`
+                      echo HOSTIP=${HOSTIP}
+                      echo HOSTIP=${HOSTIP} > host.properties
+                      '''
 
-        stage('Build Jar') {
-            steps {
-                sh 'mvn clean package -DskipTests'
+                   def props = readProperties(file: 'host.properties')
+                   String hostIP = props.HOSTIP
+                   echo "Host IP = ${hostIP}"
+
+                   docker.build('bbentein/jenkins-docker').inside("--volume=/var/run/docker.sock:/var/run/docker.sock --add-host dockerhost:${hostIP}") {
+                   sh 'docker-compose --project-name test --file docker-compose.yml up -d'
+
             }
         }
-        stage('Build Image') {
-            steps {
-                script {
-                	app = docker.build("bbentein/containertest")
-                }
-            }
-        }
+
         stage('Push Image') {
             steps {
                 script {
