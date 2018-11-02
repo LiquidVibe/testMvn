@@ -1,10 +1,13 @@
 pipeline {
   agent none
+
   stages {
         stage('Docker compose') {
           agent any
           steps {
-            sh 'docker-compose -f docker-compose.yml up'
+            sh 'docker-compose -f ./docker-compose.yml build'
+            sh 'docker-compose -f ./docker-compose.yml up --abort-on-container-exit'
+
           }
         }
 
@@ -36,7 +39,8 @@ pipeline {
 
     post {
         always {
-            sh 'docker-compose -f docker-compose.yml down'
+            sh 'docker-compose -f ./docker-compose rm -f -s'
+            sh 'docker-compose -f ./docker-compose.yml down --rmi local --remove-orphans'
         }
     }
 

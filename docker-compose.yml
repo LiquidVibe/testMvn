@@ -1,18 +1,20 @@
+compile:
+   dockerfile: .dockerfile
+   project_name: dockerMvnRepo
 services:
-  compile:
-    build:
-      context: .
-      dockerfile: compile.dockerfile
-    args:
-    - PROJECT_PATH=$PROJECT_PATH
-    volumes:
-    - .:$PROJECT_PATH
-  db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
+  mysql:
+    image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: example
+    - MYSQL_ROOT_PASSWORD=password
+    - MYSQL_DATABASE=admin
+    networks:
+    - compose-net
+    expose:
+    - 3306
+
+  java-unit:
+    image: java:11-jdk
+    working_dir: /src
 
 seleniumhub:
   image: selenium/hub

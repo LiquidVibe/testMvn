@@ -1,8 +1,7 @@
-FROM anapsix/alpine-java
-LABEL maintainer="Brent Bentein"
-ARG PROJECT_PATH
-VOLUME $PROJECT_PATH
-WORKDIR $PROJECT_PATH
+FROM ubuntu:16.04
 
-COPY /target/dockerMvnRepo-1.0.0.jar /home/dockerMvnRepo-1.0.0.jar
-CMD ["java","-jar","/home/dockerMvnRepo-1.0.0.jar"]
+# Install Docker CLI in the agent
+LABEL maintainer="Brent Bentein"
+
+RUN apt-get update && apt-get install -y docker-ce --allow-unauthenticated
+RUN apt-get update && apt-get install -y openjdk-8-jre curl python python-pip git
