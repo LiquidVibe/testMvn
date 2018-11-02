@@ -6,9 +6,11 @@ def containertest='conatinertest-${BUILD_NUMBER}'
 
 pipeline {
    agent {
-           node {
-               label 'docker' && 'maven'
-           }
+           docker {
+                   image 'maven:3-alpine'
+                   label 'docker'
+                   args  '-v /tmp:/tmp'
+            }
    }
    stages{
 
