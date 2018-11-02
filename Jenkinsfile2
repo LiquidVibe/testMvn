@@ -6,7 +6,7 @@ def containertest='conatinertest-${BUILD_NUMBER}'
 
 pipeline {
    agent any
-   stages{
+   node{
          stage('SCM Checkout'){
             steps{
                 git credentialsId: 'git-creds', url: 'https://github.com/LiquidVibe/testMvn'
