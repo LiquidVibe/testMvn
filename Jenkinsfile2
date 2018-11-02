@@ -2,44 +2,10 @@ def network='jenkins-${BUILD_NUMBER}'
 def seleniumHub='selenium-hub-${BUILD_NUMBER}'
 def chrome='chrome-${BUILD_NUMBER}'
 def firefox='firefox-${BUILD_NUMBER}'
-def containertest='conatinertest-${BUILD_NUMBER}'
 
 pipeline {
    agent any
    stages{
-
-        stage('SCM Checkout'){
-            git 'https://github.com/LiquidVibe/testMvn'
-        }
-
-        stage('Create docker'){
-            steps {
-                sh '''\
-                      HOSTIP=`ip -4 addr show docker0 | grep 'inet ' | awk '{print $2}' | awk -F '/' '{print $1}'`
-                      echo HOSTIP=${HOSTIP}
-                      echo HOSTIP=${HOSTIP} > host.properties
-                      '''
-
-                   def props = readProperties(file: 'host.properties')
-                   String hostIP = props.HOSTIP
-                   echo "Host IP = ${hostIP}"
-
-                   docker.build('bbentein/jenkins-docker').inside("--volume=/var/run/docker.sock:/var/run/docker.sock --add-host dockerhost:${hostIP}") {
-                   sh 'docker-compose --project-name test --file docker-compose.yml up -d'
-                }
-            }
-        }
-
-        stage('Push Image') {
-            steps {
-                script {
-			        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-			        	app.push("${BUILD_NUMBER}")
-			            app.push("latest")
-			        }
-                }
-            }
-        }
           stage('Setting Up Selenium Grid') {
              steps{
                 sh "docker network create ${network}"
@@ -49,8 +15,9 @@ pipeline {
           }
           stage('Run Test') {
              steps{
-                 def mvnHome = tool name: 'TestMaven', type: 'maven'
-                 sh '${mvnHome}/bin/mvn clean install'
+                withMaven(maven : 'TestMaven'){
+                    mvn clean install
+                }
              }
           }
 
