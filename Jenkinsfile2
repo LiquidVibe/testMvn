@@ -8,28 +8,6 @@ pipeline {
     agent none
 
    stages{
-       stage('Docker node test') {
-             agent {
-               docker {
-                 image 'node:7-alpine'
-                 args '--name docker-node'
-               }
-             }
-             steps {
-               sh 'node --version'
-             }
-           }
-
-           stage('Docker maven test') {
-             agent {
-               docker {
-                 image 'maven:3-alpine'
-               }
-             }
-             steps {
-               sh 'mvn --version'
-             }
-           }
 
           stage('Setting Up Selenium Grid') {
              steps{
