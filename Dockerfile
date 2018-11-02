@@ -20,4 +20,4 @@ ADD suite/search-module.xml search-module.xml
 # MODULE  = order-module / search-module
 # SELENIUM_HUB = selenium hub hostname / ipaddress
 
-ENTRYPOINT java -cp container-test.jar:libs/* -DseleniumHubHost=$SELENIUM_HUB -Dbrowser=$BROWSER org.testng.TestNG $MODULE
+ENTRYPOINT java -cp container-test.jar:libs/* -DseleniumHubHost=$SELENIUM_HUB -Dbrowser=$BROWSER
