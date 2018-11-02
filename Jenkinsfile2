@@ -8,15 +8,21 @@ pipeline {
    agent any
    stages{
          stage('SCM Checkout'){
-             git credentialsId: 'git-creds', url: 'https://github.com/LiquidVibe/testMvn'
+            steps{
+                git credentialsId: 'git-creds', url: 'https://github.com/LiquidVibe/testMvn'
+            }
          }
          stage('Mvn Package'){
-           def mvnHome = tool name: 'maven-3', type: 'maven'
-           def mvnCMD = "${mvnHome}/bin/mvn"
-           sh "${mvnCMD} clean package"
+            steps{
+               def mvnHome = tool name: 'maven-3', type: 'maven'
+               def mvnCMD = "${mvnHome}/bin/mvn"
+               sh "${mvnCMD} clean package"
+           }
          }
          stage('Build Docker Image'){
-           sh 'docker build -t LiquidVibe/testMvn .'
+            steps{
+                sh 'docker build -t LiquidVibe/testMvn .'
+           }
          }
          stage ('Push Docker Image'){
                      steps{
