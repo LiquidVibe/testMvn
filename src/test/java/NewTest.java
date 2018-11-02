@@ -1,9 +1,13 @@
 import junit.framework.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class NewTest {
 
@@ -15,11 +19,20 @@ public class NewTest {
         Assert.assertTrue(title.contains("Demo Guru99 Page"));
     }
     @BeforeTest
-    public void beforeTest() {
+    public void beforeTest() throws MalformedURLException {
         //this can be set in commands
         //ChromeDriverManager.getInstance().setup();
         //System.setProperty("webdriver.chrome.driver","../../ChromeDriver/chromedriver");
-        driver = new ChromeDriver();
+        //driver = new ChromeDriver();
+
+        DesiredCapabilities dc = DesiredCapabilities.chrome();
+
+        if (System.getProperty("browser").equals("firefox"))
+            dc = DesiredCapabilities.firefox();
+
+        String host = System.getProperty("seleniumHubHost");
+
+        driver = new RemoteWebDriver(new URL("http://" + host + ":4444/wd/hub"), dc);
     }
     @AfterTest
     public void afterTest() {
