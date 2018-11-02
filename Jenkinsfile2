@@ -16,7 +16,9 @@ pipeline {
           stage('Run Test') {
              steps{
                 withMaven(maven : 'TestMaven'){
-                    mvn clean install
+                    steps{
+                        mvn clean install
+                    }
                 }
              }
           }
