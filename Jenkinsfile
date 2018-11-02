@@ -1,10 +1,28 @@
 pipeline {
-  agent none
-
+    agent any
+    tools {
+        jdk 'jdk8'
+        maven 'maven3'
+    }
   stages {
+        stage('test java installation') {
+            steps {
+                sh 'java -version'
+                sh 'which java'
+            }
+        }
+        stage('test maven installation') {
+            steps {
+                sh 'mvn -version'
+                sh 'which mvn'
+            }
+        }
+
+
         stage('Docker compose') {
           agent any
           steps {
+            sh ‘docker-compose –f build-compose.yml run –rm compile’
             sh 'docker-compose -f ./docker-compose.yml build'
             sh 'docker-compose -f ./docker-compose.yml up --abort-on-container-exit'
 
