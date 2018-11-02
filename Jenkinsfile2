@@ -5,8 +5,7 @@ def firefox='firefox-${BUILD_NUMBER}'
 def containertest='conatinertest-${BUILD_NUMBER}'
 
 pipeline {
-    agent none
-
+    agent any
    stages{
 
           stage('Setting Up Selenium Grid') {
