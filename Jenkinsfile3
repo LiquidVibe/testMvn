@@ -1,7 +1,6 @@
 node("docker") {
     stage('SCM Checkout'){
         def mvnHome = tool name: 'TestMaven', type: 'maven'
-
         git 'https://github.com/LiquidVibe/testMvn'
     }
 

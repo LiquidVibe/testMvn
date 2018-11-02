@@ -7,6 +7,11 @@ def containertest='conatinertest-${BUILD_NUMBER}'
 pipeline {
    agent any
    stages{
+
+        stage('SCM Checkout'){
+            git 'https://github.com/LiquidVibe/testMvn'
+        }
+
         stage('Create docker'){
             steps {
                 sh '''\
@@ -21,7 +26,7 @@ pipeline {
 
                    docker.build('bbentein/jenkins-docker').inside("--volume=/var/run/docker.sock:/var/run/docker.sock --add-host dockerhost:${hostIP}") {
                    sh 'docker-compose --project-name test --file docker-compose.yml up -d'
-
+                }
             }
         }
 
@@ -44,9 +49,8 @@ pipeline {
           }
           stage('Run Test') {
              steps{
-                  steps {
-                    sh 'mvn clean install'
-                  }
+                 def mvnHome = tool name: 'TestMaven', type: 'maven'
+                 sh '${mvnHome}/bin/mvn clean install'
              }
           }
 
