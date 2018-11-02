@@ -13,9 +13,9 @@ pipeline {
             }
          }
          stage('Mvn Package'){
-            steps{
                def mvnHome = tool name: 'maven-3', type: 'maven'
                def mvnCMD = "${mvnHome}/bin/mvn"
+            steps{
                sh "${mvnCMD} clean package"
            }
          }
