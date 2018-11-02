@@ -1,6 +1,13 @@
-version: "3"
-
+version: '3'
 services:
+  compile:
+    build:
+      context: .
+      dockerfile: compile.dockerfile
+    args:
+    - PROJECT_PATH=$PROJECT_PATH
+    volumes:
+    - .:$PROJECT_PATH
   db:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
