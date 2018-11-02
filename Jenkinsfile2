@@ -5,10 +5,36 @@ def firefox='firefox-${BUILD_NUMBER}'
 def containertest='conatinertest-${BUILD_NUMBER}'
 
 pipeline {
-   agent {
-        docker { image 'node:7-alpine' }
+   agent { dockerfile true }
+   node{
+      stage('SCM Checkout'){
+          git credentialsId: 'git-creds', url: 'https://github.com/LiquidVibe/testMvn'
+      }
+      stage('Mvn Package'){
+        def mvnHome = tool name: 'maven-3', type: 'maven'
+        def mvnCMD = "${mvnHome}/bin/mvn"
+        sh "${mvnCMD} clean package"
+      }
+      stage('Build Docker Image'){
+        sh 'docker build -t LiquidVibe/testMvn .'
+      }
+      stage ('Push Docker Image'){
+                  steps{
+                      withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+                           sh 'docker login -u bbentein -p ${dockerHubPwd}'
+                       }
+                       sh 'docker push bbentein/dockerMvnImage:latest'
+                   }
+               }
+      stage('Run docker'){
+        def dockerRun = 'docker run -p 8080:8080 -d --name my-app bbentein/dockerMvnImage'
+      }
    }
    stages{
+
+        stage('SCM Checkout'){
+            git credentialsId: 'git-creds',
+        }
 
           stage('Setting Up Selenium Grid') {
              steps{
@@ -24,23 +50,6 @@ pipeline {
                   }
              }
           }
-         stage('Build Image') {
-             steps {
-                 script {
-                       app = docker.build("bbentein/containertest")
-                 }
-             }
-         }
-         stage ('Push Docker Image'){
-             steps{
-                script {
-                  docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                      app.push("${BUILD_NUMBER}")
-                      app.push("latest")
-                    }
-                }
-             }
-         }
 
           stage('Tearing Down Selenium Grid') {
               steps {
