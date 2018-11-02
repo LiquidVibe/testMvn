@@ -5,13 +5,32 @@ def firefox='firefox-${BUILD_NUMBER}'
 def containertest='conatinertest-${BUILD_NUMBER}'
 
 pipeline {
-    agent {
-        node {
-            label 'docker' && 'maven'
-        }
-    }
+    agent none
 
    stages{
+       stage('Docker node test') {
+             agent {
+               docker {
+                 image 'node:7-alpine'
+                 args '--name docker-node'
+               }
+             }
+             steps {
+               sh 'node --version'
+             }
+           }
+
+           stage('Docker maven test') {
+             agent {
+               docker {
+                 image 'maven:3-alpine'
+               }
+             }
+             steps {
+               sh 'mvn --version'
+             }
+           }
+
           stage('Setting Up Selenium Grid') {
              steps{
                 sh "docker network create ${network}"
