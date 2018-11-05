@@ -28,3 +28,11 @@ node("docker") {
                 sh 'apt-get update'
              }
           }
+
+          sudo usermod -a -G root jenkins
+          sudo service jenkins restart
+
+
+          or
+
+          sudo usermod -a -G docker jenkins

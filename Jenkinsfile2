@@ -8,14 +8,14 @@ pipeline {
    stages{
           stage ('install docker'){
             steps {
-                sh "sudo apt-get update"
-                sh "sudo apt-get install docker-ce"
+                sh "apt-get update"
+                sh "apt-get install docker-ce"
             }
           }
           stage ('run docker') {
             steps{
-                sh 'sudo docker run -v /var/run/docker.sock:/var/run/docker.sock ubuntu:latest'
-                sh 'sudo apt-get update'
+                sh 'docker run -v /var/run/docker.sock:/var/run/docker.sock ubuntu:latest'
+                sh 'apt-get update'
              }
           }
           stage('Setting Up Selenium Grid') {
