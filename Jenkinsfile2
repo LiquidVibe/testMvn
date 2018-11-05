@@ -11,13 +11,6 @@ pipeline {
         }
    }
    stages{
-          stage ('run docker') {
-            steps{
-                sh "apt-get udpate"
-                sh "apt-get install docker-ce"
-                sh "docker run hello-world"
-             }
-          }
           stage('Setting Up Selenium Grid') {
              steps{
                 sh "docker network create ${network}"
