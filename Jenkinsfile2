@@ -6,12 +6,6 @@ def firefox='firefox-${BUILD_NUMBER}'
 pipeline {
    agent any
    stages{
-          stage ('run docker') {
-            steps{
-                sh 'docker run -v /var/run/docker.sock:/var/run/docker.sock ubuntu:latest'
-                sh 'apt-get update'
-             }
-          }
           stage('Setting Up Selenium Grid') {
              steps{
                 sh "docker network create ${network}"
