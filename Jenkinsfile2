@@ -28,8 +28,8 @@ pipeline {
 
           stage('Tearing Down Selenium Grid') {
               steps {
-                 sh "docker rm -vf chrome
-                 sh "docker rm -vf selenium-hub
+                 sh "docker rm -vf chrome"
+                 sh "docker rm -vf selenium-hub"
               }
            }
    }
