@@ -5,19 +5,18 @@ def firefox='firefox-${BUILD_NUMBER}'
 
 pipeline {
    agent {
-        dockerfile true
+        docker {
+            image 'docker'
+            args '-u root --privileged'
+          }
    }
    stages{
-          stage ('install docker'){
-            steps {
-                sh "apt-get update"
-                sh "apt-get install docker-ce"
-            }
-          }
           stage ('run docker') {
             steps{
-                sh 'docker run -v /var/run/docker.sock:/var/run/docker.sock ubuntu:latest'
-                sh 'apt-get update'
+                sh "docker build -t myjenk"
+                sh "docker run -d -v /var/run/docker.sock:/var/run/docker.sock \ -v $(which docker):/usr/bin/docker -p 8080:8080 myjenk"
+
+                docker run -it --name jenkinsTest3 -p 8080:8080 -p 5000:5000 -v jenkinsTest2:/var/jenkins_home jenkins/jenkins:latest
              }
           }
           stage('Setting Up Selenium Grid') {
