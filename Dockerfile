@@ -13,9 +13,9 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
 RUN apt-get update
 RUN apt-get install -y docker-ce
-
-RUN docker network create jenkinsNetwork
-RUN docker run -d -p 4444:4444 --name seleniumHub --network jenkinsNetwork selenium/hub
-RUN docker run -d -e HUB_PORT_4444_TCP_ADDR=seleniumHub -e HUB_PORT_4444_TCP_PORT=4444 --network jenkinsNetwork--name chrome selenium/node-chrome
+RUN docker pull selenium/hub
+RUN docker pull selenium/node-chrome-debug
+RUN docker run -d -p 4444:4444 --name selenium-hub -P selenium/hub
+RUN docker run -d -P --link selenium-hub:hub selenium/node-chrome-debug
 
 USER jenkins
