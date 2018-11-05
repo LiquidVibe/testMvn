@@ -4,7 +4,9 @@ def chrome='chrome-${BUILD_NUMBER}'
 def firefox='firefox-${BUILD_NUMBER}'
 
 pipeline {
-   agent any
+   agent {
+        dockerfile true
+   }
    stages{
           stage ('install docker'){
             steps {
