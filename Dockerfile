@@ -1,5 +1,10 @@
 FROM jenkins:latest
 
+ARG network='jenkins-${BUILD_NUMBER}'
+ARG seleniumHub='selenium-hub-${BUILD_NUMBER}'
+ARG chrome='chrome-${BUILD_NUMBER}'
+ARG firefox='firefox-${BUILD_NUMBER}'
+
 USER root
 RUN apt-get update && apt-get install -y apt-transport-https
 
