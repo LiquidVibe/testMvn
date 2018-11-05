@@ -8,7 +8,6 @@ pipeline {
    stages{
           stage ('install docker'){
             steps {
-                sh "usermod -a -G root jenkins"
                 sh "apt-get update"
                 sh "apt-get install docker-ce"
             }
