@@ -56,3 +56,27 @@ RUN apt-get update && apt-get install -y apt-transport-https
             sh 'docker-compose -f ./docker-compose.yml down --rmi local --remove-orphans'
         }
     }
+
+
+RUN docker pull selenium/hub
+RUN docker pull selenium/node-chrome-debug
+RUN docker run -d -p 4444:4444 --name selenium-hub -P selenium/hub
+RUN docker run -d -P --name chrome --link selenium-hub:hub selenium/node-chrome-debug
+
+    compile:
+       dockerfile: .dockerfile
+       project_name: dockerMvnRepo
+    services:
+      mysql:
+        image: mysql:5.7
+        environment:
+        - MYSQL_ROOT_PASSWORD=password
+        - MYSQL_DATABASE=admin
+        networks:
+        - compose-net
+        expose:
+        - 3306
+
+      java-unit:
+        image: java:11-jdk
+        working_dir: /src
