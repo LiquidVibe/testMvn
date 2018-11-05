@@ -13,10 +13,9 @@ pipeline {
    stages{
           stage ('run docker') {
             steps{
-                sh "docker build -t myjenk"
-                sh "docker run -d -v /var/run/docker.sock:/var/run/docker.sock \ -v $(which docker):/usr/bin/docker -p 8080:8080 myjenk"
-
-                docker run -it --name jenkinsTest3 -p 8080:8080 -p 5000:5000 -v jenkinsTest2:/var/jenkins_home jenkins/jenkins:latest
+                sh "apt-get udpate"
+                sh "apt-get install docker-ce"
+                sh "docker run hello-world"
              }
           }
           stage('Setting Up Selenium Grid') {
