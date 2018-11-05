@@ -16,6 +16,6 @@ RUN apt-get install -y docker-ce
 RUN docker pull selenium/hub
 RUN docker pull selenium/node-chrome-debug
 RUN docker run -d -p 4444:4444 --name selenium-hub -P selenium/hub
-RUN docker run -d -P --link selenium-hub:hub selenium/node-chrome-debug
+RUN docker run -d -P --name chrome --link selenium-hub:hub selenium/node-chrome-debug
 
 USER jenkins

@@ -53,13 +53,4 @@ pipeline {
              }
          }
      }
-
-    post {
-        always {
-            sh 'docker-compose -f ./docker-compose rm -f -s'
-            sh 'docker-compose -f ./docker-compose.yml down --rmi local --remove-orphans'
-        }
-    }
-
-
 }
