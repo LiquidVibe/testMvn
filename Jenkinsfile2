@@ -6,7 +6,6 @@ def firefox='firefox-${BUILD_NUMBER}'
 pipeline {
    agent {
         dockerfile {
-            image 'docker'
             args '-u root --privileged'
             args '--entrypoint=\'\''
           }
