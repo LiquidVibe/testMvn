@@ -10,8 +10,7 @@ RUN apt-get update
 RUN apt-get install -y docker-ce
 RUN curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
-RUN echo "$PWD"
 RUN docker-compose --version
-RUN docker-compose up -d
+RUN docker-compose -f ~/dockerMvnRepo/docker-compose.yml up -d
 
 USER jenkins
