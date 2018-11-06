@@ -140,9 +140,12 @@ RUN apt-get -y install docker-ce
         }
    }
 
-
-   RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
+  db:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
 
                 sh 'sudo docker run -it --privileged --name dockertest2 -d docker:dind'
