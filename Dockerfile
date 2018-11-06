@@ -9,6 +9,7 @@ RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubunt
 RUN apt-get update
 RUN apt-get install -y docker-ce
 RUN gpasswd -a jenkins docker
+RUN usermod -aG docker jenkins
 RUN curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` \
     >~/docker-compose
 RUN chmod +x ~/docker-compose
