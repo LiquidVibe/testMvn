@@ -16,6 +16,4 @@ RUN chmod +x ~/docker-compose
 RUN mv ~/docker-compose /usr/local/bin/docker-compose
 RUN service docker stop
 RUN service docker start
-RUN docker run -it --privileged --name dockertest -d docker:dind
-RUN docker ps
 USER jenkins
