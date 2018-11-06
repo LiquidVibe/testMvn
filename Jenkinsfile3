@@ -139,3 +139,6 @@ RUN apt-get -y install docker-ce
             args '--entrypoint=\'\''
         }
    }
+
+
+   RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
