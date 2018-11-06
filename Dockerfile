@@ -17,5 +17,4 @@ RUN mv ~/docker-compose /usr/local/bin/docker-compose
 RUN service docker stop
 RUN service docker start
 RUN docker ps
-RUN docker run --priviliged -v /var/run/docker.sock:/var/run/docker.sock docker
 USER jenkins
