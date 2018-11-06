@@ -1,6 +1,7 @@
 FROM jenkins:latest
 
 USER root
-RUN usermod -aG root jenkins
+RUN apt-get update
+RUN groupadd docker && gpasswd -a jenkins docker
 
-USER root
+USER jenkins
