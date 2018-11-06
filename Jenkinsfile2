@@ -15,12 +15,13 @@ pipeline {
              steps {
                 sh 'docker-compose --version'
                 sh 'pwd'
+                sh 'ls ~/var/jenkins_home/workspace/testMvn/'
              }
           }
 
           stage ('use Docker compose') {
               steps{
-                sh 'docker-compose -f ~/var/jenkins_home/workspace/testMvn/docker-compose.yml up'
+                sh 'docker-compose -f /var/jenkins_home/workspace/testMvn/docker-compose.yml up'
               }
           }
           stage('Run Test') {
