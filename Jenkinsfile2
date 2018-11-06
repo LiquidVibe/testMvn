@@ -20,7 +20,7 @@ pipeline {
 
           stage ('use Docker compose') {
               steps{
-                sh 'docker-compose up -d'
+                sh 'docker-compose-f ~/dockerMvnRepo/docker-compose'
               }
           }
           stage('Run Test') {
