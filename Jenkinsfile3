@@ -131,3 +131,11 @@ RUN add-apt-repository \
    stable"
 RUN apt-get update
 RUN apt-get -y install docker-ce
+
+
+   agent {
+        dockerfile {
+            filename 'Dockerfile'
+            args '--entrypoint=\'\''
+        }
+   }

@@ -4,12 +4,7 @@ def chrome='chrome-${BUILD_NUMBER}'
 def firefox='firefox-${BUILD_NUMBER}'
 
 pipeline {
-   agent {
-        dockerfile {
-            filename 'Dockerfile'
-            args '--entrypoint=\'\''
-        }
-   }
+   agent any
    stages{
           stage('Run Test') {
              steps{
