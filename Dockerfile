@@ -10,7 +10,7 @@ RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubunt
 RUN apt-get update
 RUN apt-get install -y docker-ce
 RUN bash service docker start
-RUN docker run hello-world
+RUN docker wait docker
 RUN docker run -d -p 4444:4444 --name selenium-hub -P selenium/hub
 RUN docker run -d -p 4578 --name chrome --link selenium-hub:hub selenium/node-chrome-debug
 
