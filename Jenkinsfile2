@@ -29,7 +29,7 @@ pipeline {
           stage('Run Test') {
              steps{
                 withMaven(maven : 'TestMaven'){
-                    sh 'mvn clean install'
+                    sh '$MVN_CMD clean install'
                 }
              }
           }
