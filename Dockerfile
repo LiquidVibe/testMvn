@@ -1,10 +1,5 @@
 FROM jenkins:latest
 
-ARG network='jenkins-${BUILD_NUMBER}'
-ARG seleniumHub='selenium-hub-${BUILD_NUMBER}'
-ARG chrome='chrome-${BUILD_NUMBER}'
-ARG firefox='firefox-${BUILD_NUMBER}'
-
 USER root
 RUN apt-get update && apt-get install -y apt-transport-https
 
@@ -15,8 +10,6 @@ RUN apt-get update
 RUN apt-get install -y docker-ce
 RUN curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
-RUN pwd
-RUN docker-compose -f ./docker-compose.yml run -rm compile
-RUN sudo docker-compose up -d
+RUN sudo docker-compose -f /usr/local/bin/docker-compose up
 
 USER jenkins
