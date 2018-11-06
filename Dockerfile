@@ -2,7 +2,7 @@ FROM jenkins:latest
 
 USER root
 RUN apt-get update && apt-get install -y apt-transport-https
-RUN apat-get install acl -y
+RUN apt-get install acl -y
 RUN apt-get install -y apt-transport-https ca-certificates curl software-properties-common
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
@@ -17,5 +17,6 @@ RUN mv ~/docker-compose /usr/local/bin/docker-compose
 RUN service docker stop
 RUN service docker start
 RUN setfacl -m user:jenkins:rw /var/run/docker.sock
+RUN docker ps
 RUN docker run --priviliged -v /var/run/docker.sock:/var/run/docker.sock docker
 USER jenkins
