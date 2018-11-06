@@ -14,6 +14,7 @@ pipeline {
           stage ('setup dockerCompose') {
              steps {
                 sh 'docker-compose --version'
+                sh 'pwd'
              }
           }
 
