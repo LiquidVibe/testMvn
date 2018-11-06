@@ -10,6 +10,7 @@ RUN apt-get update
 RUN apt-get -y install docker-ce
 RUN gpasswd -a jenkins docker
 RUN usermod -aG docker jenkins
+RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` \
     >~/docker-compose
 RUN chmod +x ~/docker-compose
