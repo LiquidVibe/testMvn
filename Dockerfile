@@ -14,7 +14,6 @@ RUN add-apt-repository \
        "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
        $(lsb_release -cs) \
        stable"
-RUN apt-get update
 RUN apt-get install -y docker-ce
 RUN bash service docker start
 RUN docker run -i -v /var/run/docker.sock:/var/run/docker.sock ubuntu:latest sh -c "apt-get update ; apt-get install docker.io -y ; bash"
