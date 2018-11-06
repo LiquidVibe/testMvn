@@ -21,7 +21,7 @@ pipeline {
 
           stage ('use Docker compose') {
               steps{
-                sh 'docker-compose -f /var/jenkins_home/workspace/testMvn/docker-compose.yml up'
+                sh 'docker-compose -f . up'
               }
           }
           stage('Run Test') {
