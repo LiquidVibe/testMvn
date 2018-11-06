@@ -17,8 +17,8 @@ pipeline {
                 sh 'pwd'
                 sh 'ls'
                 sh 'sudo docker run hello-world'
-                sh 'sudo docker run -it --privileged --name dockertest -d docker:dind'
-                sh 'sudo docker run --rm --link dockertest:docker docker sh'
+                sh 'sudo docker run -it --privileged --name dockertest2 -d docker:dind'
+                sh 'sudo docker run --rm --link dockertest2:docker docker sh'
              }
           }
 
