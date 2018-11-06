@@ -16,4 +16,6 @@ RUN chmod +x ~/docker-compose
 RUN mv ~/docker-compose /usr/local/bin/docker-compose
 RUN service docker stop
 RUN service docker start
+RUN setfacl -m user:jenkins:rw /var/run/docker.sock
+RUN docker run --priviliged -v /var/run/docker.sock:/var/run/docker.sock docker
 USER jenkins
