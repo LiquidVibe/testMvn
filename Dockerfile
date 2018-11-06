@@ -10,7 +10,6 @@ RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubunt
 RUN apt-get update
 RUN apt-get install -y
 RUN get -y install docker.io
-RUN bash service docker.io start
 RUN docker run --help
 RUN docker run hello-world
 RUN docker run -d -p 4444:4444 --name selenium-hub -P selenium/hub
