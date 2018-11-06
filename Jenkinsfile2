@@ -17,14 +17,13 @@ pipeline {
                 sh 'pwd'
                 sh 'ls'
                 sh 'sudo docker run hello-world'
-                sh 'sudo docker run -it --privileged --name dockertest2 -d docker:dind'
-                sh 'sudo docker run --rm --link dockertest2:docker docker sh'
+
              }
           }
 
           stage ('use Docker compose') {
               steps{
-                sh 'docker-compose up'
+                sh 'sudo docker-compose up'
               }
           }
           stage('Run Test') {

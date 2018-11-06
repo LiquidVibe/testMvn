@@ -142,3 +142,8 @@ RUN apt-get -y install docker-ce
 
 
    RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+
+
+                sh 'sudo docker run -it --privileged --name dockertest2 -d docker:dind'
+                sh 'sudo docker run --rm --link dockertest2:docker docker sh'
