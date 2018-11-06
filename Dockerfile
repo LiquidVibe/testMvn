@@ -1,4 +1,4 @@
-FROM jenkins:latest
+FROM ubuntu:latest
 
 USER root
 RUN apt-get update && apt-get install -y apt-transport-https
