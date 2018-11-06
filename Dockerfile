@@ -15,4 +15,5 @@ RUN curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-com
 RUN chmod +x ~/docker-compose
 RUN mv ~/docker-compose /usr/local/bin/docker-compose
 RUN service docker start
+RUN docker run -v /var/run/docker.sock:/var/run/docker.sock docker
 USER jenkins
