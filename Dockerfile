@@ -11,9 +11,7 @@ RUN add-apt-repository \
        $(lsb_release -cs) \
        stable"
 RUN apt-get update
-RUN apt-get install -y docker-ce
-RUN bash service docker start
-RUN docker run -v /var/run/docker.sock:/var/run/docker.sock docker
+RUN docker run -it -v /var/run/docker.sock:/var/run/docker.sock ubuntu:latest sh -c "apt-get update ; apt-get install docker.io -y ; bash"
 RUN docker pull selenium/hub:latest
 RUN docker pull selenium/node-chrome-debug:latest
 RUN docker run -d -p 4444:4444 --name selenium-hub -P selenium/hub
