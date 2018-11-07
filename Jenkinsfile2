@@ -18,12 +18,6 @@ pipeline {
                 }
           }
 
-          stage('Remove mavencontainer') {
-              steps {
-                    sh 'sudo docker rm mavencontainer'
-              }
-          }
-
           stage('Remove docker-compose files') {
               steps{
                 sh 'docker-compose -f ./docker-compose rm -f -s'
