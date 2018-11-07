@@ -14,8 +14,7 @@ pipeline {
         }
    }
    tools {
-        maven 'apache-maven-3.6.0'
-        jdk 'jkd11'
+        maven 'TestMaven'
    }
    stages{
           stage ('setup dockerCompose') {
@@ -35,9 +34,7 @@ pipeline {
           }
           stage('Run Test') {
              steps{
-                withMaven(maven : 'TestMaven'){
-                    sh "mvn clean install"
-                }
+                 sh "mvn clean install"
              }
           }
 
