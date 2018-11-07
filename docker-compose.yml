@@ -15,7 +15,6 @@ services:
 
   seleniumhub:
     image: selenium/hub
-    container_name: seleniumhub
     ports:
     - "4444:4444"
     depends_on:
@@ -31,6 +30,5 @@ services:
     - seleniumhub
     environment:
      HUB_HOST: seleniumhub
-     HUB_PORT: 4444
 
 
