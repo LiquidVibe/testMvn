@@ -22,7 +22,7 @@ pipeline {
           }
           stage ('Run tests'){
                 steps{
-                    sh 'sudo docker run -it --rm --name mavencontainer -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.6.0-jdk-11-slim mvn clean install'
+                    sh 'sudo docker run --rm --name mavencontainer -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.6.0-jdk-11-slim mvn clean install'
                 }
           }
 
