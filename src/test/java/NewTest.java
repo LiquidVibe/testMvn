@@ -1,5 +1,7 @@
 import junit.framework.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.Command;
+import org.openqa.selenium.remote.CommandExecutor;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
@@ -32,7 +34,7 @@ public class NewTest {
         String host = System.getProperty("seleniumhub");
         System.out.println(host);
 
-        String nodeUrl = "http://172.21.0.2:4444/wd/hub";
+        String nodeUrl = "http://selenium_hub:4444/wd/hub";
 
         driver = new RemoteWebDriver(new URL(nodeUrl), dc);
         driver.manage().window().maximize();
