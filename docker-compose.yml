@@ -5,7 +5,7 @@ services:
   mysql:
     image: mariadb
     ports:
-    - 3307:3306
+    - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 1234
     volumes:
@@ -15,6 +15,7 @@ services:
 
   seleniumhub:
     image: selenium/hub
+    container_name: seleniumhub
     ports:
     - "4444:4444"
     depends_on:
@@ -24,6 +25,7 @@ services:
 
   chromenode:
     image: selenium/node-chrome-debug
+    container_name: chromenode
     ports:
     - 4578
     depends_on:
