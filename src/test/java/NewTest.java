@@ -32,7 +32,7 @@ public class NewTest {
         String host = System.getProperty("seleniumhub");
         System.out.println(host);
 
-        String nodeUrl = "http://<IP Address>:<Port>/wd/hub";
+        String nodeUrl = "http://<IP Address>:4444/wd/hub";
 
         driver = new RemoteWebDriver(new URL(nodeUrl), dc);
         driver.manage().window().maximize();
