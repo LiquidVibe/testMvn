@@ -20,10 +20,16 @@ pipeline {
                 sh 'sudo docker-compose up -d'
               }
           }
-          stage('Run Test') {
-             steps{
-                 sh "mvn clean install"
-             }
+          stage ('Run tests'){
+                steps{
+                    sh 'sudo docker run -it --rm --name mavencontainer -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.6.0-jdk-11-slim mvn clean install'
+                }
+          }
+
+          stage('Remove mavencontainer') {
+              steps {
+                    sh 'sudo docker rm mavencontainer'
+              }
           }
 
           stage('Remove docker-compose files') {
