@@ -3,6 +3,9 @@ def seleniumHub='selenium-hub-${BUILD_NUMBER}'
 def chrome='chrome-${BUILD_NUMBER}'
 def firefox='firefox-${BUILD_NUMBER}'
 
+def mvnHome = tool name: 'TestMaven', type: 'maven'
+def mvnCMD = "${mvnHome}/bin/mvn"
+
 pipeline {
    agent {
         dockerfile {
@@ -29,9 +32,14 @@ pipeline {
           stage('Run Test') {
              steps{
                 withMaven(maven : 'TestMaven'){
-                    sh '$MVN_CMD clean install'
+                    sh "${mvnCMD} clean install"
                 }
              }
           }
    }
+    post {
+        always {
+            sh 'sudo docker-compose -f ./docker-compose rm -f -s'
+        }
+    }
 }
