@@ -26,7 +26,10 @@ services:
     image: selenium/node-chrome-debug
     ports:
     - 4578
-    links:
-    - seleniumhub:hub
+    depends_on:
+    - seleniumhub
+    environment:
+     - HUB_HOST: seleniumhub
+     - HUB_PORT: 4444
 
 
