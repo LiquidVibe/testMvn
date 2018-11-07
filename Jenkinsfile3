@@ -153,3 +153,12 @@ RUN apt-get -y install docker-ce
 
                 sh 'sudo docker run -it --privileged --name dockertest2 -d docker:dind'
                 sh 'sudo docker run --rm --link dockertest2:docker docker sh'
+
+
+
+def network='jenkins-${BUILD_NUMBER}'
+def seleniumHub='selenium-hub-${BUILD_NUMBER}'
+def chrome='chrome-${BUILD_NUMBER}'
+def firefox='firefox-${BUILD_NUMBER}'
+def mvnHome = tool name: 'TestMaven', type: 'maven'
+def mvnCMD = "${mvnHome}/bin/mvn"
