@@ -37,7 +37,7 @@ pipeline {
              }
           }
 
-          stage('Remove docker-compose files'){
+          stage('Remove docker-compose files') {
               steps{
                    sh 'sudo docker-compose -f ./docker-compose rm -f -s'
               }
