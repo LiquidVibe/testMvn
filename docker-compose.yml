@@ -15,8 +15,9 @@ services:
 
   seleniumhub:
     image: selenium/hub
+    container_name: seleniumhub
     ports:
-    - 4444:4444
+    - "4444:4444"
     depends_on:
       - mysql
     links:
@@ -29,7 +30,7 @@ services:
     depends_on:
     - seleniumhub
     environment:
-     - HUB_HOST: seleniumhub
-     - HUB_PORT: 4444
+     HUB_HOST: seleniumhub
+     HUB_PORT: 4444
 
 
