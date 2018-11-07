@@ -29,7 +29,7 @@ public class NewTest {
         dc.setCapability("version", "");
         dc.setCapability("platform", "LINUX");
         String host = System.getProperty("seleniumhub");
-
+        System.out.println(host);
         driver = new RemoteWebDriver(new URL("http://" + host + ":4444/wd/hub"), dc);
         driver.manage().window().maximize();
     }
