@@ -17,4 +17,5 @@ RUN chmod +x ~/docker-compose
 RUN mv ~/docker-compose /usr/local/bin/docker-compose
 RUN service docker stop
 RUN service docker start
+RUN RUN apt-get -y install maven
 USER jenkins

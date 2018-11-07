@@ -178,3 +178,6 @@ maven
 
 RUN apt-get -y install openjdk-11-jre-headless
 RUN apt-get -y install maven
+
+
+                    sh 'sudo docker run --rm --name mavencontainer -v "$(pwd)":/usr/src/mvn -w /usr/src/mvn maven:3.6.0-jdk-11-slim mvn clean install'
