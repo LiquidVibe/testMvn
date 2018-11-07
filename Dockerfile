@@ -17,11 +17,6 @@ RUN chmod +x ~/docker-compose
 RUN mv ~/docker-compose /usr/local/bin/docker-compose
 RUN service docker stop
 RUN service docker start
-# install maven
-RUN wget --no-verbose -O /tmp/apache-maven-3.6.0.tar.gz http://archive.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
-RUN tar xzf /tmp/apache-maven-3.6.0.tar.gz -C /opt/
-RUN ln -s /opt/apache-maven-3.6.0 /opt/maven
-RUN ln -s /opt/maven/bin/mvn /usr/local/bin
-RUN rm -f /tmp/apache-maven-3.6.0.tar.gz
-ENV MAVEN_HOME /opt/maven
+RUN apt-get -y install openjdk-11-jre-headless
+RUN apt-get -y install maven
 USER jenkins
