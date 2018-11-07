@@ -28,7 +28,7 @@ services:
     - seleniumhub:hub
 
   maven:
-    image: 3.6.0-jdk-11-slim
+    image: 3.6.0-jdk-11
 
 volumes:
   mysql_data:
