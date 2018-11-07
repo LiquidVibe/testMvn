@@ -2,7 +2,6 @@ def network='jenkins-${BUILD_NUMBER}'
 def seleniumHub='selenium-hub-${BUILD_NUMBER}'
 def chrome='chrome-${BUILD_NUMBER}'
 def firefox='firefox-${BUILD_NUMBER}'
-
 def mvnHome = tool name: 'TestMaven', type: 'maven'
 def mvnCMD = "${mvnHome}/bin/mvn"
 
@@ -33,6 +32,13 @@ pipeline {
              steps{
                  sh "mvn clean install"
              }
+          }
+
+          stage('Remove docker-compose files') {
+              steps{
+                sh 'docker-compose -f ./docker-compose rm -f -s'
+                sh 'docker-compose -f ./docker-compose.yml down --rmi local --remove-orphans'
+              }
           }
    }
 }
