@@ -36,10 +36,9 @@ pipeline {
                 }
              }
           }
+
+          stage('Remove docker-compose files'){
+              sh 'sudo docker-compose -f ./docker-compose rm -f -s'
+          }
    }
-    post {
-        always {
-            sh 'sudo docker-compose -f ./docker-compose rm -f -s'
-        }
-    }
 }
