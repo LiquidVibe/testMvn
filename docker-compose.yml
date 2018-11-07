@@ -1,9 +1,24 @@
 version: '2'
 services:
+
+  db:
+    image: mariadb
+    ports:
+    - 3306:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: exampledb
+
   seleniumhub:
     image: selenium/hub
     ports:
     - 4444:4444
+    depends_on:
+      - mysql
+    links:
+      - mysql
 
   chromenode:
     image: selenium/node-chrome-debug
@@ -11,3 +26,9 @@ services:
     - 4578
     links:
     - seleniumhub:hub
+
+  maven:
+    image: 3.6.0-jdk-11-slim
+
+volumes:
+  mysql_data:

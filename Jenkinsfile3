@@ -143,6 +143,14 @@ RUN apt-get -y install docker-ce
         }
    }
 
+
+     db:
+       image: mariadb
+       ports:
+         - 3306:3306
+       environment:
+         MYSQL_ROOT_PASSWORD: example
+
   db:
     image: mysql:5.7
     ports:
@@ -162,3 +170,11 @@ def chrome='chrome-${BUILD_NUMBER}'
 def firefox='firefox-${BUILD_NUMBER}'
 def mvnHome = tool name: 'TestMaven', type: 'maven'
 def mvnCMD = "${mvnHome}/bin/mvn"
+
+
+maven
+    image: 3.6.0-jdk-11-slim
+
+
+RUN apt-get -y install openjdk-11-jre-headless
+RUN apt-get -y install maven
