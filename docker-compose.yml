@@ -1,7 +1,7 @@
 version: '2'
 services:
   data:
-    build: data/.
+    build: .
   mysql:
     image: mariadb
     ports:
@@ -9,7 +9,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 1234
     volumes:
-      - ./data:/docker-entrypoint-initdb.d
+      - .:/docker-entrypoint-initdb.d
     volumes_from:
       - data
 
