@@ -6,8 +6,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.*;
 
 public class NewTest {
 
@@ -19,7 +18,7 @@ public class NewTest {
         Assert.assertTrue(title.contains("Demo Guru99 Page"));
     }
     @BeforeTest
-    public void beforeTest() throws MalformedURLException {
+    public void beforeTest() throws MalformedURLException, UnknownHostException {
         //this can be set in commands
         //ChromeDriverManager.getInstance().setup();
         //System.setProperty("webdriver.chrome.driver","../../ChromeDriver/chromedriver");
@@ -28,9 +27,12 @@ public class NewTest {
         DesiredCapabilities dc = DesiredCapabilities.chrome();
         dc.setCapability("version", "");
         dc.setCapability("platform", "LINUX");
-        //String host = System.getProperty("seleniumhub");
 
-        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
+        InetAddress ipAddress = InetAddress.getLocalHost();
+        System.out.println(ipAddress);
+        String host = System.getProperty("seleniumhub");
+        System.out.println(host);
+        driver = new RemoteWebDriver(new URL("http://" + ipAddress + ":4444/wd/hub"), dc);
         driver.manage().window().maximize();
     }
     @AfterTest
