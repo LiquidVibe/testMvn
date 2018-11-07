@@ -6,16 +6,9 @@ pipeline {
         }
    }
    stages{
-          stage ('setup dockerCompose') {
-             steps {
-                sh 'docker-compose --version'
-                sh 'pwd'
-                sh 'ls'
-             }
-          }
-
           stage ('use Docker compose') {
               steps{
+                sh 'docker-compose --version'
                 sh 'sudo docker-compose up -d'
               }
           }
