@@ -20,6 +20,7 @@ services:
     depends_on:
       - mysql
     links:
+      - seleniumhub:hub
       - mysql
 
   chromenode:
