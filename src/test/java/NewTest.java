@@ -28,7 +28,7 @@ public class NewTest {
         dc.setCapability("version", "");
         dc.setCapability("platform", "LINUX");
 
-        InetAddress ipAddress = InetAddress.getLocalHost();
+        String ipAddress = InetAddress.getLocalHost().getHostAddress();
         System.out.println(ipAddress);
         String host = System.getProperty("seleniumhub");
         System.out.println(host);
