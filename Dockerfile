@@ -4,6 +4,7 @@ USER root
 RUN apt-get update
 RUN rm -rf /var/lib/apt/lists/*
 RUN apt-get install -y apt-transport-https
+RUN apt-get install -y sudo libltdl-dev \
 RUN apt-get install acl -y
 RUN apt-get install -y apt-transport-https ca-certificates curl software-properties-common
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
