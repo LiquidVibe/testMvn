@@ -17,7 +17,7 @@ services:
     image: selenium/hub
     container_name: seleniumhub
     ports:
-    - 4444:4444
+      - 4444:4444
     depends_on:
       - mysql
     links:
@@ -27,5 +27,8 @@ services:
     image: selenium/node-chrome-debug
     container_name: chromenode
     links:
-    - seleniumhub:hub
+      - seleniumhub:hub
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444
 

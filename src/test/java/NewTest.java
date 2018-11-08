@@ -27,16 +27,17 @@ public class NewTest {
         //driver = new ChromeDriver();
 
         DesiredCapabilities dc = DesiredCapabilities.chrome();
-        dc.setCapability("version", "");
         dc.setCapability("platform", "LINUX");
+
+
         String ipAddress = InetAddress.getLocalHost().getHostAddress();
         System.out.println(ipAddress);
         String host = System.getProperty("seleniumhub");
         System.out.println(host);
 
-        String nodeUrl = "http://localhost:4444/wd/hub";
+        String hubUrl = "http://localhost:4444/wd/hub";
 
-        driver = new RemoteWebDriver(new URL(nodeUrl), dc);
+        driver = new RemoteWebDriver(new URL(hubUrl), dc);
         driver.manage().window().maximize();
     }
     @AfterTest
