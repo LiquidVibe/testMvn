@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-11-08T11:27:26 CET" name="Suite" finished-at="2018-11-08T11:27:27 CET" duration-ms="392">
+  <suite started-at="2018-11-08T11:35:15 CET" name="Suite" finished-at="2018-11-08T11:35:16 CET" duration-ms="409">
     <groups>
     </groups>
-    <test started-at="2018-11-08T11:27:26 CET" name="Test" finished-at="2018-11-08T11:27:27 CET" duration-ms="392">
+    <test started-at="2018-11-08T11:35:15 CET" name="Test" finished-at="2018-11-08T11:35:16 CET" duration-ms="409">
       <class name="NewTest">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:NewTest@587d1d39]" started-at="2018-11-08T11:27:26 CET" name="beforeTest" finished-at="2018-11-08T11:27:27 CET" duration-ms="371" status="FAIL">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:NewTest@6b9651f3]" started-at="2018-11-08T11:35:15 CET" name="beforeTest" finished-at="2018-11-08T11:35:16 CET" duration-ms="392" status="FAIL">
           <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
             <message>
               <![CDATA[Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
@@ -48,7 +48,7 @@ at org.testng.TestNG.runSuites(TestNG.java:997)
 at org.testng.TestNG.run(TestNG.java:965)
 at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)
 at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-Caused by: java.net.UnknownHostException: seleniumhub: Name or service not known
+Caused by: java.net.UnknownHostException: jenkins: Name or service not known
 at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
 at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:928)
 at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1514)
@@ -88,7 +88,7 @@ at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="testEasy()[pri:0, instance:NewTest@587d1d39]" started-at="2018-11-08T11:27:27 CET" name="testEasy" finished-at="2018-11-08T11:27:27 CET" duration-ms="0" status="SKIP">
+        <test-method signature="testEasy()[pri:0, instance:NewTest@6b9651f3]" started-at="2018-11-08T11:35:16 CET" name="testEasy" finished-at="2018-11-08T11:35:16 CET" duration-ms="0" status="SKIP">
           <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
             <message>
               <![CDATA[Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
@@ -129,7 +129,7 @@ at org.testng.TestNG.runSuites(TestNG.java:997)
 at org.testng.TestNG.run(TestNG.java:965)
 at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)
 at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-Caused by: java.net.UnknownHostException: seleniumhub: Name or service not known
+Caused by: java.net.UnknownHostException: jenkins: Name or service not known
 at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
 at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:928)
 at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1514)
@@ -169,7 +169,7 @@ at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testEasy -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:NewTest@587d1d39]" started-at="2018-11-08T11:27:27 CET" name="afterTest" finished-at="1970-01-01T01:00:00 CET" duration-ms="-1541672847176" status="SKIP">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:NewTest@6b9651f3]" started-at="2018-11-08T11:35:16 CET" name="afterTest" finished-at="1970-01-01T01:00:00 CET" duration-ms="-1541673316361" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->

@@ -14,7 +14,7 @@ services:
       - data
 
   seleniumhub:
-    container_name: seleniumhub
+    container_name: selenium_hub
     image: selenium/hub
     ports:
       - "4444:4444"
