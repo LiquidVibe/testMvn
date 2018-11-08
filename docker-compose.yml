@@ -26,8 +26,6 @@ services:
   chromenode:
     image: selenium/node-chrome-debug
     container_name: chromenode
-    expose:
-    - 5900
     links:
     - seleniumhub:hub
 
