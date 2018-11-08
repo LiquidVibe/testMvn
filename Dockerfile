@@ -1,7 +1,7 @@
 FROM jenkins:latest
 
 USER root
-RUN apt-get update && apt-get install -y apt-transport-https
+RUN apt-get update && apt-get install -y libltdl7 && rm -rf /var/lib/apt/lists/* && apt-get install -y apt-transport-https
 RUN apt-get install acl -y
 RUN apt-get install -y apt-transport-https ca-certificates curl software-properties-common
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
