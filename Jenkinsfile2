@@ -24,5 +24,10 @@ pipeline {
                 sh 'docker-compose -f ./docker-compose.yml down --rmi local --remove-orphans'
               }
           }
+          stage('Remove unused volumes,containers, images'){
+              steps{
+                 sh 'docker system prune -af'
+              }
+          }
    }
 }
