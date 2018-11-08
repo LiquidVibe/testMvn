@@ -9,10 +9,98 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="7">Suite</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">7,078</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Test</a></td><td class="num">0</td><td class="num attn">1</td><td class="num">0</td><td class="num">0</td><td class="num">392</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">NewTest</td><td><a href="#m0">testEasy</a></td><td rowspan="1">1541672802685</td><td rowspan="1">5069</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">NewTest</td><td><a href="#m0">beforeTest</a></td><td rowspan="1">1541672846786</td><td rowspan="1">371</td></tr><tr><th colspan="4">Test &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">NewTest</td><td><a href="#m1">afterTest</a></td><td rowspan="1">1541672847176</td><td rowspan="1">-1541672847176</td></tr><tr><th colspan="4">Test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">NewTest</td><td><a href="#m2">testEasy</a></td><td rowspan="1">1541672847173</td><td rowspan="1">0</td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">NewTest#testEasy</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test</h2><h3 id="m0">NewTest#beforeTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.remote.UnreachableBrowserException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: &apos;3.141.5&apos;, revision: &apos;d54ebd709a&apos;, time: &apos;2018-11-06T11:42:16&apos;
+System info: host: &apos;bb-Precision-7530&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-38-generic&apos;, java.version: &apos;11&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:573)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:144)
+	at NewTest.beforeTest(NewTest.java:40)
+Caused by: java.net.UnknownHostException: seleniumhub: Name or service not known
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:928)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1514)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:847)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1504)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1363)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1297)
+	at okhttp3.Dns$1.lookup(Dns.java:40)
+	at okhttp3.internal.connection.RouteSelector.resetNextInetSocketAddress(RouteSelector.java:185)
+	at okhttp3.internal.connection.RouteSelector.nextProxy(RouteSelector.java:149)
+	at okhttp3.internal.connection.RouteSelector.next(RouteSelector.java:84)
+	at okhttp3.internal.connection.StreamAllocation.findConnection(StreamAllocation.java:214)
+	at okhttp3.internal.connection.StreamAllocation.findHealthyConnection(StreamAllocation.java:135)
+	at okhttp3.internal.connection.StreamAllocation.newStream(StreamAllocation.java:114)
+	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java:42)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
+	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.java:93)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
+	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.java:93)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.java:126)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
+	at okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java:200)
+	at okhttp3.RealCall.execute(RealCall.java:77)
+	at org.openqa.selenium.remote.internal.OkHttpClient.execute(OkHttpClient.java:103)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:102)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	... 27 more
+... Removed 23 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">NewTest#afterTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">NewTest#testEasy</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.remote.UnreachableBrowserException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: &apos;3.141.5&apos;, revision: &apos;d54ebd709a&apos;, time: &apos;2018-11-06T11:42:16&apos;
+System info: host: &apos;bb-Precision-7530&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-38-generic&apos;, java.version: &apos;11&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:573)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:144)
+	at NewTest.beforeTest(NewTest.java:40)
+Caused by: java.net.UnknownHostException: seleniumhub: Name or service not known
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:928)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1514)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:847)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1504)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1363)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1297)
+	at okhttp3.Dns$1.lookup(Dns.java:40)
+	at okhttp3.internal.connection.RouteSelector.resetNextInetSocketAddress(RouteSelector.java:185)
+	at okhttp3.internal.connection.RouteSelector.nextProxy(RouteSelector.java:149)
+	at okhttp3.internal.connection.RouteSelector.next(RouteSelector.java:84)
+	at okhttp3.internal.connection.StreamAllocation.findConnection(StreamAllocation.java:214)
+	at okhttp3.internal.connection.StreamAllocation.findHealthyConnection(StreamAllocation.java:135)
+	at okhttp3.internal.connection.StreamAllocation.newStream(StreamAllocation.java:114)
+	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java:42)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
+	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.java:93)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
+	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.java:93)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.java:126)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
+	at okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java:200)
+	at okhttp3.RealCall.execute(RealCall.java:77)
+	at org.openqa.selenium.remote.internal.OkHttpClient.execute(OkHttpClient.java:103)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:102)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	... 27 more
+... Removed 23 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
