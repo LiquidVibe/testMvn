@@ -15,7 +15,5 @@ RUN curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-com
     >~/docker-compose
 RUN chmod +x ~/docker-compose
 RUN mv ~/docker-compose /usr/local/bin/docker-compose
-RUN service docker stop
-RUN service docker start
 RUN apt-get -y install maven
 USER jenkins
