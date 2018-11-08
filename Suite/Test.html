@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/0/1</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Nov 08 11:35:15 CET 2018</td>
+<td>Started on:</td><td>Thu Nov 08 11:37:47 CET 2018</td>
 </tr>
-<tr><td>Total time:</td><td>0 seconds (409 ms)</td>
+<tr><td>Total time:</td><td>6 seconds (6970 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,144 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='NewTest.beforeTest()'><b>beforeTest</b><br>Test class: NewTest</td>
-<td><div><pre>org.openqa.selenium.remote.UnreachableBrowserException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
-Build info: version: &apos;3.141.5&apos;, revision: &apos;d54ebd709a&apos;, time: &apos;2018-11-06T11:42:16&apos;
-System info: host: &apos;bb-Precision-7530&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-38-generic&apos;, java.version: &apos;11&apos;
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:573)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:144)
-	at NewTest.beforeTest(NewTest.java:40)
-Caused by: java.net.UnknownHostException: jenkins: Name or service not known
-	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
-	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:928)
-	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1514)
-	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:847)
-	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1504)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1363)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1297)
-	at okhttp3.Dns$1.lookup(Dns.java:40)
-	at okhttp3.internal.connection.RouteSelector.resetNextInetSocketAddress(RouteSelector.java:185)
-	at okhttp3.internal.connection.RouteSelector.nextProxy(RouteSelector.java:149)
-	at okhttp3.internal.connection.RouteSelector.next(RouteSelector.java:84)
-	at okhttp3.internal.connection.StreamAllocation.findConnection(StreamAllocation.java:214)
-	at okhttp3.internal.connection.StreamAllocation.findHealthyConnection(StreamAllocation.java:135)
-	at okhttp3.internal.connection.StreamAllocation.newStream(StreamAllocation.java:114)
-	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java:42)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.java:93)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.java:93)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.java:126)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java:200)
-	at okhttp3.RealCall.execute(RealCall.java:77)
-	at org.openqa.selenium.remote.internal.OkHttpClient.execute(OkHttpClient.java:103)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:102)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	... 27 more
-... Removed 23 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace282828951", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace282828951'><pre>org.openqa.selenium.remote.UnreachableBrowserException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
-Build info: version: &apos;3.141.5&apos;, revision: &apos;d54ebd709a&apos;, time: &apos;2018-11-06T11:42:16&apos;
-System info: host: &apos;bb-Precision-7530&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-38-generic&apos;, java.version: &apos;11&apos;
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:573)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:144)
-	at NewTest.beforeTest(NewTest.java:40)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:131)
-	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:61)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:511)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:241)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:144)
-	at org.testng.TestRunner.beforeRun(TestRunner.java:612)
-	at org.testng.TestRunner.run(TestRunner.java:582)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:398)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:392)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:302)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1145)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1067)
-	at org.testng.TestNG.runSuites(TestNG.java:997)
-	at org.testng.TestNG.run(TestNG.java:965)
-	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)
-	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-Caused by: java.net.UnknownHostException: jenkins: Name or service not known
-	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
-	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:928)
-	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1514)
-	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:847)
-	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1504)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1363)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1297)
-	at okhttp3.Dns$1.lookup(Dns.java:40)
-	at okhttp3.internal.connection.RouteSelector.resetNextInetSocketAddress(RouteSelector.java:185)
-	at okhttp3.internal.connection.RouteSelector.nextProxy(RouteSelector.java:149)
-	at okhttp3.internal.connection.RouteSelector.next(RouteSelector.java:84)
-	at okhttp3.internal.connection.StreamAllocation.findConnection(StreamAllocation.java:214)
-	at okhttp3.internal.connection.StreamAllocation.findHealthyConnection(StreamAllocation.java:135)
-	at okhttp3.internal.connection.StreamAllocation.newStream(StreamAllocation.java:114)
-	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java:42)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.java:93)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.java:93)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.java:126)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java:200)
-	at okhttp3.RealCall.execute(RealCall.java:77)
-	at org.openqa.selenium.remote.internal.OkHttpClient.execute(OkHttpClient.java:103)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:102)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	... 27 more
-</pre></div></td>
-<td>0</td>
-<td>NewTest@6b9651f3</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-skipped'>
-<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='NewTest.afterTest()'><b>afterTest</b><br>Test class: NewTest</td>
-<td></td>
-<td>-1541673316</td>
-<td>NewTest@6b9651f3</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-skipped'>
-<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
@@ -212,119 +76,9 @@ Caused by: java.net.UnknownHostException: jenkins: Name or service not known
 </tr>
 <tr>
 <td title='NewTest.testEasy()'><b>testEasy</b><br>Test class: NewTest</td>
-<td><div><pre>org.openqa.selenium.remote.UnreachableBrowserException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
-Build info: version: &apos;3.141.5&apos;, revision: &apos;d54ebd709a&apos;, time: &apos;2018-11-06T11:42:16&apos;
-System info: host: &apos;bb-Precision-7530&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-38-generic&apos;, java.version: &apos;11&apos;
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:573)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:144)
-	at NewTest.beforeTest(NewTest.java:40)
-Caused by: java.net.UnknownHostException: jenkins: Name or service not known
-	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
-	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:928)
-	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1514)
-	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:847)
-	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1504)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1363)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1297)
-	at okhttp3.Dns$1.lookup(Dns.java:40)
-	at okhttp3.internal.connection.RouteSelector.resetNextInetSocketAddress(RouteSelector.java:185)
-	at okhttp3.internal.connection.RouteSelector.nextProxy(RouteSelector.java:149)
-	at okhttp3.internal.connection.RouteSelector.next(RouteSelector.java:84)
-	at okhttp3.internal.connection.StreamAllocation.findConnection(StreamAllocation.java:214)
-	at okhttp3.internal.connection.StreamAllocation.findHealthyConnection(StreamAllocation.java:135)
-	at okhttp3.internal.connection.StreamAllocation.newStream(StreamAllocation.java:114)
-	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java:42)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.java:93)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.java:93)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.java:126)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java:200)
-	at okhttp3.RealCall.execute(RealCall.java:77)
-	at org.openqa.selenium.remote.internal.OkHttpClient.execute(OkHttpClient.java:103)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:102)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	... 27 more
-... Removed 23 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1438988851", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1438988851'><pre>org.openqa.selenium.remote.UnreachableBrowserException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
-Build info: version: &apos;3.141.5&apos;, revision: &apos;d54ebd709a&apos;, time: &apos;2018-11-06T11:42:16&apos;
-System info: host: &apos;bb-Precision-7530&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-38-generic&apos;, java.version: &apos;11&apos;
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:573)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:144)
-	at NewTest.beforeTest(NewTest.java:40)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:131)
-	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:61)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:511)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:241)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:144)
-	at org.testng.TestRunner.beforeRun(TestRunner.java:612)
-	at org.testng.TestRunner.run(TestRunner.java:582)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:398)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:392)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:302)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1145)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1067)
-	at org.testng.TestNG.runSuites(TestNG.java:997)
-	at org.testng.TestNG.run(TestNG.java:965)
-	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)
-	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-Caused by: java.net.UnknownHostException: jenkins: Name or service not known
-	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
-	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:928)
-	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1514)
-	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:847)
-	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1504)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1363)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1297)
-	at okhttp3.Dns$1.lookup(Dns.java:40)
-	at okhttp3.internal.connection.RouteSelector.resetNextInetSocketAddress(RouteSelector.java:185)
-	at okhttp3.internal.connection.RouteSelector.nextProxy(RouteSelector.java:149)
-	at okhttp3.internal.connection.RouteSelector.next(RouteSelector.java:84)
-	at okhttp3.internal.connection.StreamAllocation.findConnection(StreamAllocation.java:214)
-	at okhttp3.internal.connection.StreamAllocation.findHealthyConnection(StreamAllocation.java:135)
-	at okhttp3.internal.connection.StreamAllocation.newStream(StreamAllocation.java:114)
-	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java:42)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.java:93)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.java:93)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.java:126)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java:200)
-	at okhttp3.RealCall.execute(RealCall.java:77)
-	at org.openqa.selenium.remote.internal.OkHttpClient.execute(OkHttpClient.java:103)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:102)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	... 27 more
-</pre></div></td>
-<td>0</td>
-<td>NewTest@6b9651f3</td></tr>
+<td></td>
+<td>5</td>
+<td>NewTest@58c1670b</td></tr>
 </table><p>
 </body>
 </html>
