@@ -35,7 +35,7 @@ public class NewTest {
         String host = System.getProperty("seleniumhub");
         System.out.println(host);
 
-        String hubUrl = "http://localhost:4444/wd/hub";
+        String hubUrl = "http://seleniumhub:4444/wd/hub";
 
         driver = new RemoteWebDriver(new URL(hubUrl), dc);
         driver.manage().window().maximize();
